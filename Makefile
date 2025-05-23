@@ -6,7 +6,7 @@
 #    By: rzamolo- <rzamolo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/23 12:25:18 by rzamolo-          #+#    #+#              #
-#    Updated: 2025/05/23 12:51:39 by rzamolo-         ###   ########.fr        #
+#    Updated: 2025/05/23 13:11:49 by rzamolo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC_DIR = src
 OBJ_DIR = obj
 
 SRCS = \
-	src/main.c 
+	src/main.c
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

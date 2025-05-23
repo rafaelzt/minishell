@@ -9,7 +9,7 @@
 |rl_on_new_line<br/>|Lib|Proto|Return|Desc|
 |rl_replace_line<br/>|Lib|Proto|Return|Desc|
 |rl_redisplay<br/>|Lib|Proto|Return|Desc|
-|add_history<br/>|Lib|Proto|Return|Desc|
+|add_history<br/>|#include <readline/history.h>|extern void add_history PARAMS((const char *));|Return|Desc|
 |printf<br/>|Lib|Proto|Return|Desc|
 |malloc<br/>|Lib|Proto|Return|Desc|
 |free<br/>|Lib|Proto|Return|Desc|

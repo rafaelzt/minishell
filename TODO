@@ -1,0 +1,7 @@
+O que pode vir depois
+Se quiser seguir com um shell funcional, os próximos passos seriam:
+[ ] Fazer parsing da string (input) em comandos e argumentos.
+[ ] Tratar built-ins (como cd, exit).
+[ ] Executar comandos com fork() + execvp().
+[ ] Tratar sinais (SIGINT, SIGQUIT).
+[ ] Redirecionamento e pipes.

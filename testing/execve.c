@@ -14,22 +14,48 @@ int main(void)
 	pid = fork();
 	if (pid == 0)
 	{
-		if (execve("/bin/echo", lst, envp) == -1) // argv passed to /bin/echo, but some programs, like `echo` ignore the index = 0;
-			perror("Could not execve [echo #1]");
+		execve("/bin/echo", lst, envp); // argv passed to /bin/echo, but some programs, like `echo` ignore the index = 0;
+		perror("Could not execve [echo #1]");
+		return (-1);
 	}
-	wait(NULL);
-	pid = fork();
-	if (pid == 0)
-		if (execve("/bin/echo", &lst[0], envp) == -1)
-				perror("Could not execve [echo #2]");
-// If the execve() work properly, the process is changed to /bin/echo and my main process doesn't exist anymore.
-// to workaround that we use forks
+	else if (pid < 0)
+	{
+		perror("fork");
+		return (-1);
+	}
+
 	wait(NULL);
 	pid = fork();
 	if (pid == 0)
 	{
-		if (execve("/usr/bin/env", lst2, envp) == -1)
-			perror("Could not execve [env]");
+		execve("/bin/echo", &lst[0], envp);
+		perror("Could not execve [echo #2]");
+		return (-1);
+	}
+	else if (pid < 0)
+	{
+		perror("fork");
+		return (-1);
+	}
+	
+	wait(NULL);
+	pid = fork();
+	if (pid == 0)
+	{
+		execve("/usr/bin/env", lst2, envp);
+		perror("Could not execve [env]");
+		return (-1);
+	}
+	else if (pid < 0)
+	{
+		perror("fork");
+		return (-1);
 	}
 	return (0);
 }
+
+// If the execve() work properly, the process is changed to /bin/echo and my main process doesn't exist anymore.
+// to workaround that we use forks
+
+// It's a good practice to end a child process with `exit()` or `return`
+

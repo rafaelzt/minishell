@@ -29,13 +29,14 @@
 |sigaddset<br/>|Lib|Proto|Return|Desc|
 |kill<br/>|Lib|Proto|Return|Desc|
 |exit<br/>|Lib|Proto|Return|Desc|
-|getcwd<br/>|Lib|Proto|Return|Desc|
+|getcwd<br/>|#include <unistd.h>|char *getcwd(char buf[.size], size_t size);|On success, these functions return a pointer to a string containing the pathname of the current working directory.  In the case of getcwd() and getwd() this is the same value as buf.<br/><br/>
+On failure, these functions return NULL, and errno is set to indicate the error.  The contents of the array pointed to by _buf_ are undefined on error.|Desc|
 |chdir<br/>|Lib|Proto|Return|Desc|
 |stat<br/>|Lib|Proto|Return|Desc|
 |lstat<br/>|Lib|Proto|Return|Desc|
 |fstat<br/>|Lib|Proto|Return|Desc|
 |unlink<br/>|Lib|Proto|Return|Desc|
-|execve<br/>|Lib|Proto|Return|Desc|
+|execve<br/>|#include <unistd.h>| int execve(const char *pathname, char *const _Nullable argv[], char *const _Nullable envp[]);|On success, execve() does not return, on error -1 is returned, and errno is set to indicate the error.|Desc|
 |dup<br/>|Lib|Proto|Return|Desc|
 |dup2<br/>|Lib|Proto|Return|Desc|
 |pipe<br/>|Lib|Proto|Return|Desc|

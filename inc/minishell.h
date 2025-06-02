@@ -6,25 +6,25 @@
 /*   By: rzamolo- <rzamolo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:44:00 by rzamolo-          #+#    #+#             */
-/*   Updated: 2025/05/23 14:37:34 by rzamolo-         ###   ########.fr       */
+/*   Updated: 2025/06/02 11:41:36 by rzamolo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
-#define MINISHELL_H
+# define MINISHELL_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <errno.h>
-#include <signal.h>
-#include <readline/readline.h>
-#include <readline/history.h>
-#include <sys/wait.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <errno.h>
+# include <signal.h>
+# include <readline/readline.h>
+# include <readline/history.h>
+# include <sys/wait.h>
 
-#define PROMPT "$> "
+# define PROMPT "$> "
 
-typedef int (*builtin_fn)(char **args);
+typedef int	(*builtin_fn)(char **args);
 
 typedef struct s_builtin
 {
@@ -43,7 +43,7 @@ typedef struct s_cmd
 	char			**args; // string vector [command, arg1, ..., NULL]
 	t_redir			*in; // input list redirection
 	t_redir			*out; // output list redirection
-	struct	s_cmd	*next; // pipeline
+	struct s_cmd	*next; // pipeline
 }	t_cmd;
 
 int	builtin_cd(char **args);

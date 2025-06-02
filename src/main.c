@@ -6,24 +6,26 @@
 /*   By: rzamolo- <rzamolo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 12:13:18 by rzamolo-          #+#    #+#             */
-/*   Updated: 2025/06/02 12:45:42 by rzamolo-         ###   ########.fr       */
+/*   Updated: 2025/06/02 13:20:16 by rzamolo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minishell.h"
 
-int	main(int argc, char **argv)
+// https://www.gnu.org/software/libc/manual/html_node/Program-Arguments.html
+int	main(int argc, char *argv[], char *envp[])
 {
 	// `char *input;` because readline allocate memory, because of that I use
 	// free at the end of the wile block
 	char	*input;
-	char	*envp[] = {"/usr/bin/ls", "-l", NULL};
 	int		status;
-	// char	**args;
+	char	*args[] = {"/home/rzamolo-/Documents/minishell", NULL};
+	pid_t	pid;
 
 	(void)argc;
 	(void)argv;
 	status = -1;
+	pid = 0;
 	while (1)
 	{
 		signal(SIGINT, SIG_IGN); // Ignore Ctrl+C
@@ -32,8 +34,19 @@ int	main(int argc, char **argv)
 		// status = execute_args(args); // Code execute_args (execute function)
 		if (!input)
 			break ;
-		if (strcmp(input, "ls") == 0)
-			execve("/usr/bin/ls", envp, envp);
+		if (strcmp(input, "ls") == 0) // Have to import libft to use `ft_strcmp`
+		{
+				pid = fork();
+				if (pid == 0)
+				{
+					execve("/usr/bin/ls", args, envp);
+					perror("execve");
+				}
+				else
+					perror("fork");
+				// Can´t return... If I return from here the process ends and the loop closes
+		}
+		wait(NULL);
 		if (*input != '\0')
 			add_history(input);
 		printf("%s\n", input);

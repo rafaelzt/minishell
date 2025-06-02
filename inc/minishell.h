@@ -6,7 +6,7 @@
 /*   By: rzamolo- <rzamolo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 11:44:00 by rzamolo-          #+#    #+#             */
-/*   Updated: 2025/06/02 11:41:36 by rzamolo-         ###   ########.fr       */
+/*   Updated: 2025/06/02 12:44:40 by rzamolo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <string.h>
 # include <errno.h>
 # include <signal.h>
+# include <unistd.h>
 # include <readline/readline.h>
 # include <readline/history.h>
 # include <sys/wait.h>

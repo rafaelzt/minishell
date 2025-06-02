@@ -6,7 +6,7 @@
 /*   By: rzamolo- <rzamolo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 12:13:18 by rzamolo-          #+#    #+#             */
-/*   Updated: 2025/06/02 11:48:21 by rzamolo-         ###   ########.fr       */
+/*   Updated: 2025/06/02 12:45:42 by rzamolo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(int argc, char **argv)
 	// `char *input;` because readline allocate memory, because of that I use
 	// free at the end of the wile block
 	char	*input;
+	char	*envp[] = {"/usr/bin/ls", "-l", NULL};
 	int		status;
 	// char	**args;
 
@@ -31,8 +32,8 @@ int	main(int argc, char **argv)
 		// status = execute_args(args); // Code execute_args (execute function)
 		if (!input)
 			break ;
-		if (input == 'cd')
-			execve(getcwd(input))
+		if (strcmp(input, "ls") == 0)
+			execve("/usr/bin/ls", envp, envp);
 		if (*input != '\0')
 			add_history(input);
 		printf("%s\n", input);

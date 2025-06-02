@@ -37,7 +37,7 @@ int main(void)
 		perror("fork");
 		return (-1);
 	}
-	
+
 	wait(NULL);
 	pid = fork();
 	if (pid == 0)
@@ -59,3 +59,4 @@ int main(void)
 
 // It's a good practice to end a child process with `exit()` or `return`
 
+// https://man7.org/linux/man-pages/man2/execve.2.html

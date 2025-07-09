@@ -6,7 +6,7 @@
 #    By: rzt <rzt@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/12 22:37:10 by rzt               #+#    #+#              #
-#    Updated: 2025/07/04 12:04:50 by rzt              ###   ########.fr        #
+#    Updated: 2025/07/04 17:30:55 by rzt              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,6 @@ SRC_FILES	= \
 	$(SRC_DIR)/executor/executor_pipeline_utils.c \
 	$(SRC_DIR)/executor/executor_redirections.c \
 	$(SRC_DIR)/executor/executor_utils.c \
-	$(SRC_DIR)/utils/debug.c \
 	$(SRC_DIR)/utils/ft_free_split.c \
 	$(SRC_DIR)/utils/ft_isnbr.c \
 	$(SRC_DIR)/utils/ft_strjoin_free.c \
